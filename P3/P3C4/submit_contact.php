@@ -29,7 +29,7 @@ $message = $postData['message'];
 <body>
     <div class="container">
 
-    <?php include_once('header.php'); ?>
+    <?php include_once($rootPath.'/header.php'); ?>
         <h1>Message bien reçu !</h1>
         
         <div class="card">
@@ -40,3 +40,7 @@ $message = $postData['message'];
                 <p class="card-text"><b>Message</b> : <?php echo strip_tags($message); ?></p>
             </div>
         </div>
+    </div>
+    <?php include_once($rootPath.'/footer.php'); ?>
+</body>
+</html>

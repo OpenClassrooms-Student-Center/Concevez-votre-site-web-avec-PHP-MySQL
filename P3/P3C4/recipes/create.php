@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+    include_once('./../config/mysql.php');
+    include_once('./../config/user.php');
+    include_once('./../variables.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +18,9 @@
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once('header.php'); ?>
+    <?php include_once($rootPath.'/header.php'); ?>
         <h1>Ajouter une recette</h1>
-        <form action="submit_recipe.php" method="POST">
+        <form action="<?php echo($rootUrl . 'recipes/post_create.php'); ?>" method="POST">
             <div class="mb-3">
                 <label for="title" class="form-label">Titre de la recette</label>
                 <input type="text" class="form-control" id="title" name="title" aria-describedby="title-help">
@@ -31,6 +35,6 @@
         <br />
     </div>
 
-    <?php include_once('footer.php'); ?>
+    <?php include_once($rootPath.'/footer.php'); ?>
 </body>
 </html>

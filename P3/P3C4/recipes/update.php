@@ -1,7 +1,7 @@
 <?php session_start();
-
-include_once('config/mysql.php');
-include_once('config/user.php');
+    include_once('./../config/mysql.php');
+    include_once('./../config/user.php');
+    include_once('./../variables.php');
 
 $getData = $_GET;
 
@@ -34,9 +34,9 @@ $recipe = $retrieveRecipeStatement->fetch(PDO::FETCH_ASSOC);
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once('header.php'); ?>
+    <?php include_once($rootPath.'/header.php'); ?>
         <h1>Mettre à jour <?php echo($recipe['title']); ?></h1>
-        <form action="submit_recipe_edition.php" method="POST">
+        <form action="<?php echo($rootUrl . 'recipes/post_update.php'); ?>" method="POST">
             <div class="mb-3 visually-hidden">
                 <label for="id" class="form-label">Identifiant de la recette</label>
                 <input type="hidden" class="form-control" id="id" name="id" value="<?php echo($getData['id']); ?>">
@@ -57,6 +57,6 @@ $recipe = $retrieveRecipeStatement->fetch(PDO::FETCH_ASSOC);
         <br />
     </div>
 
-    <?php include_once('footer.php'); ?>
+    <?php include_once($rootPath.'/footer.php'); ?>
 </body>
 </html>

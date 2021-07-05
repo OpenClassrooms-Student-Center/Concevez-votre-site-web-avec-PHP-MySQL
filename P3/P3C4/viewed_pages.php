@@ -1,6 +1,6 @@
 <?php
 
-$monfichier = fopen('compteur.txt', 'r+');
+$monfichier = fopen($rootPath.'/compteur.txt', 'r+');
  
 $pages_vues = fgets($monfichier); // On lit la première ligne (nombre de pages vues)
 $pages_vues += 1; // On augmente de 1 ce nombre de pages vues
