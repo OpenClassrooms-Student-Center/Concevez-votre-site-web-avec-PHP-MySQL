@@ -34,16 +34,10 @@ if (isset($postData['email']) &&  isset($postData['password'])) {
     }
 }
 
-// Si le cookie est présent
-if (isset($_COOKIE['LOGGED_USER'])) {
+// Si le cookie ou la session sont présentes
+if (isset($_COOKIE['LOGGED_USER']) || isset($_SESSION['LOGGED_USER'])) {
     $loggedUser = [
-        'email' => $_COOKIE['LOGGED_USER'],
-    ];
-}
-
-if (isset($_SESSION['LOGGED_USER'])) {
-    $loggedUser = [
-        'email' => $_SESSION['LOGGED_USER'],
+        'email' => $_COOKIE['LOGGED_USER'] ?? $_SESSION['LOGGED_USER'],
     ];
 }
 ?>

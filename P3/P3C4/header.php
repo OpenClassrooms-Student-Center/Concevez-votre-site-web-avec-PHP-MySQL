@@ -18,6 +18,11 @@
         <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
+        <?php if($loggedUser) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="add_recipe.php">Ajoutez une recette !</a>
+        </li>
+        <?php endif; ?>
       </ul>
     </div>
   </div>
