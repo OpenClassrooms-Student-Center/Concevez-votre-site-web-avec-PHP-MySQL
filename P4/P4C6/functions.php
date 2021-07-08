@@ -23,6 +23,32 @@ function display_author(string $authorEmail, array $users) : string
             return $author['full_name'] . '(' . $author['age'] . ' ans)';
         }
     }
+
+    return 'Non trouvé.';
+}
+
+function display_user(int $userId, array $users) : string
+{
+    for ($i = 0; $i < count($users); $i++) {
+        $user = $users[$i];
+        if ($userId === (int) $user['user_id']) {
+            return $user['full_name'] . '(' . $user['age'] . ' ans)';
+        }
+    }
+
+    return 'Non trouvé.';
+}
+
+function retrieve_id_from_user_mail(string $userEmail, array $users) : int
+{
+    for ($i = 0; $i < count($users); $i++) {
+        $user = $users[$i];
+        if ($userEmail === $user['email']) {
+            return $user['user_id'];
+        }
+    }
+
+    return 0;
 }
 
 function get_recipes(array $recipes, int $limit) : array
@@ -35,10 +61,8 @@ function get_recipes(array $recipes, int $limit) : array
             return $valid_recipes;
         }
 
-        if ($recipe['is_enabled']) {
-            $valid_recipes[] = $recipe;
-            $counter++;
-        }
+        $valid_recipes[] = $recipe;
+        $counter++;
     }
 
     return $valid_recipes;

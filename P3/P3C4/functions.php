@@ -35,8 +35,10 @@ function get_recipes(array $recipes, int $limit) : array
             return $valid_recipes;
         }
 
-        $valid_recipes[] = $recipe;
-        $counter++;
+        if ($recipe['is_enabled']) {
+            $valid_recipes[] = $recipe;
+            $counter++;
+        }
     }
 
     return $valid_recipes;
