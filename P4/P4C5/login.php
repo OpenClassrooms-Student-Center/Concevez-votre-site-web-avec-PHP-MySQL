@@ -21,6 +21,7 @@ if (isset($postData['email']) &&  isset($postData['password'])) {
                 [
                     'expires' => time() + 365*24*3600,
                     'secure' => true,
+                    'httponly' => true,
                 ]
             );
 

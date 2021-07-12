@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * On ne traite pas les super globales provenant de l'utilisateur directement,
+ * ces données doivent être testées et vérifiées.
+ */ 
 $getData = $_GET;
 
 if (!isset($getData['email']) || !isset($getData['message']))

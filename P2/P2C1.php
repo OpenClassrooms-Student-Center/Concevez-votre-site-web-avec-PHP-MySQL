@@ -1,5 +1,21 @@
 <?php
 
+
+/**
+ * Exemples
+ */
+
+$fullname = 'Mickaël Andrieu';
+$age = 34;
+$email = 'mickael.andrieu@exemple.com';
+
+// test de type
+echo gettype($fullname); // string
+echo gettype($age); // integer
+
+/**
+ * Variables finales en fin de P2
+ */
 $users = [
     [
         'full_name' => 'Mickaël Andrieu',

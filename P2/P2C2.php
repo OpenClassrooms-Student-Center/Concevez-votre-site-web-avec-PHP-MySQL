@@ -45,6 +45,11 @@ $recipes = [
     ],
 ];
 
+/**
+ * On introduit les boucles une première fois en P2C2,
+ * en même temps que les tableaux (et on y revient en détail en P2C3).
+ * 
+ */
 foreach ($recipes as $recipe) {
     if ($recipe['is_enabled']) {
         echo($recipe['title'] . ': ✅' . PHP_EOL);
