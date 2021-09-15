@@ -90,7 +90,7 @@ function get_recipes(array $recipes) : array
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We love food</title>
+    <title>Site de Recettes</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
         rel="stylesheet"
@@ -98,7 +98,7 @@ function get_recipes(array $recipes) : array
 </head>
 <body>
     <div class="container">
-        <h1>We love food !</h1>
+        <h1>Site de Recettes !</h1>
         <!-- Plus facile à lire -->
         <?php foreach(get_recipes($recipes) as $recipe) : ?>
             <article>

@@ -45,22 +45,7 @@ $recipes = [
     ],
 ];
 
-function display_recipe(array $recipe) : string
-{
-    $recipe_content = '';
-
-    if ($recipe['is_enabled']) {
-        $recipe_content = '<article>';
-        $recipe_content .= '<h3>' . $recipe['title'] . '</h3>';
-        $recipe_content .= '<div>' . $recipe['recipe'] . '</div>';
-        $recipe_content .= '<i>' . $recipe['author'] . '</i>';
-        $recipe_content .= '</article>';
-    }
-    
-    return $recipe_content;
-}
-
-function display_author(string $authorEmail, array $users) : string
+function displayAuthor(string $authorEmail, array $users) : string
 {
     for ($i = 0; $i < count($users); $i++) {
         $author = $users[$i];
@@ -70,12 +55,23 @@ function display_author(string $authorEmail, array $users) : string
     }
 }
 
-function get_recipes(array $recipes) : array
+function isValidRecipe(array $recipe) : bool
+{
+    if (array_key_exists('is_enabled', $recipe)) {
+        $isEnabled = $recipe['is_enabled'];
+    } else {
+        $isEnabled = false;
+    }
+
+    return $isEnabled;
+}
+
+function getRecipes(array $recipes) : array
 {
     $valid_recipes = [];
 
     foreach($recipes as $recipe) {
-        if ($recipe['is_enabled']) {
+        if (isValidRecipe($recipe)) {
             $valid_recipes[] = $recipe;
         }
     }
@@ -90,7 +86,7 @@ function get_recipes(array $recipes) : array
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We love food</title>
+    <title>Recettes de cuisine</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
         rel="stylesheet"
@@ -98,13 +94,13 @@ function get_recipes(array $recipes) : array
 </head>
 <body>
     <div class="container">
-        <h1>We love food !</h1>
-        <!-- Plus facile à lire -->
-        <?php foreach(get_recipes($recipes) as $recipe) : ?>
+        <h1>Liste des recettes de cuisine</h1>
+
+        <?php foreach(getRecipes($recipes) as $recipe) : ?>
             <article>
-                <h3><?php echo($recipe['title']); ?></h3>
-                <div><?php echo($recipe['recipe']); ?></div>
-                <i><?php echo(display_author($recipe['author'], $users)); ?></i>
+                <h3><?php echo $recipe['title']; ?></h3>
+                <div><?php echo $recipe['recipe']; ?></div>
+                <i><?php echo displayAuthor($recipe['author'], $users); ?></i>
             </article>
         <?php endforeach ?>
     </div>   

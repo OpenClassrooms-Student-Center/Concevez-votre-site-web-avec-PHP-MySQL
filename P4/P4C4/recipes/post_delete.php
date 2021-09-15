@@ -5,15 +5,13 @@ include_once('./../config/mysql.php');
 include_once('./../config/user.php');
 include_once('./../variables.php');
 
-$postData = $_POST;
-
-if (!isset($postData['id']))
+if (!isset($_POST['id']))
 {
-	echo('Il faut un identifiant valide pour supprimer une recette.');
+	echo 'Il faut un identifiant valide pour supprimer une recette.';
     return;
 }	
 
-$id = $postData['id'];
+$id = $_POST['id'];
 
 $deleteRecipeStatement = $mysqlClient->prepare('DELETE FROM recipes WHERE recipe_id = :id');
 $deleteRecipeStatement->execute([

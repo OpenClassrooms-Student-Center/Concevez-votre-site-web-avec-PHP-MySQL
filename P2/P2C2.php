@@ -50,10 +50,18 @@ $recipes = [
  * en même temps que les tableaux (et on y revient en détail en P2C3).
  * 
  */
-foreach ($recipes as $recipe) {
+/*foreach ($recipes as $recipe) {
     if ($recipe['is_enabled']) {
         echo($recipe['title'] . ': ✅' . PHP_EOL);
     } else {
         echo($recipe['title'] . ': ❌ ' . PHP_EOL);
     }
-}  
+}*/
+
+$lines = 3; // nombre d'utilisateurs dans le tableau
+$counter = 0;
+
+while ($counter < $lines) {
+    echo $users[$counter]['full_name'] . ' ' . $users[$counter]['email'] . '<br />';
+    $counter++;
+}

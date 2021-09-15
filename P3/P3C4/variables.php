@@ -3,9 +3,9 @@
 $users = [
     [
         'full_name' => 'Mickaël Andrieu',
-        'email' => 'mickael.andrieu@exemple.com',
+        'email' => 'user@exemple.com',
         'age' => 34,
-        'password' => 'S3cr3t',
+        'password' => 'devine',
     ],
     [
         'full_name' => 'Mathieu Nebra',
