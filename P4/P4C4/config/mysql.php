@@ -14,5 +14,5 @@ try {
     );
     $mysqlClient->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(Exception $exception) {
-    die('Erreur : '.$e->getMessage());
+    die('Erreur : '.$exception->getMessage());
 }
